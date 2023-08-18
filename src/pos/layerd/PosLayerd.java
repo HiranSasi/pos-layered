@@ -4,6 +4,8 @@
  */
 package pos.layerd;
 
+import pos.layerd.view.LayoutView;
+
 /**
  *
  * @author Hiran
@@ -15,7 +17,7 @@ public class PosLayerd {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("Hello");
+       new LayoutView().setVisible(true);
     }
     
 }
