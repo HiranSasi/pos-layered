@@ -4,16 +4,21 @@
  */
 package pos.layerd.view;
 
+import javax.swing.JOptionPane;
+import pos.layerd.controller.CustomerController;
+import pos.layerd.dto.CustomerDto;
+
 /**
  *
  * @author Hiran
  */
 public class CustomerPanel extends javax.swing.JPanel {
-
+private CustomerController customerController;
     /**
      * Creates new form CustomerPanel
      */
     public CustomerPanel() {
+        customerController = new CustomerController();
         initComponents();
     }
 
@@ -331,6 +336,7 @@ public class CustomerPanel extends javax.swing.JPanel {
 
     private void addbottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbottonActionPerformed
         // TODO add your handling code here:
+        addCustomer(0);
         
     }//GEN-LAST:event_addbottonActionPerformed
 
@@ -392,4 +398,35 @@ public class CustomerPanel extends javax.swing.JPanel {
     private javax.swing.JPanel tablepanel;
     private javax.swing.JButton updatebotton;
     // End of variables declaration//GEN-END:variables
+
+    private void addCustomer(int i) {
+        CustomerDto customerDto = new CustomerDto(custidText.getText(),
+                custtitleText.getText(),
+                custnameText.getText(),
+                custdobText.getText(),
+                Double.parseDouble(custSalaryText.getText()),
+                custaddressText.getText(),
+                custcityText.getText(),
+                custprovinceText.getText(),
+                custpostcodeText.getText());
+        
+        
+        String result =customerController.addCustomers(customerDto);
+        JOptionPane.showMessageDialog(this, result);
+        clear();
+    }
+    
+      private void clear(){
+            
+            custidText.setText("");
+            custtitleText.setText("");
+            custnameText.setText("");
+            custdobText.setText("");
+            custSalaryText.setText("");
+            custaddressText.setText("");
+            custcityText.setText("");
+            custprovinceText.setText("");
+            custpostcodeText.setText("");
+                 
+        }
 }
