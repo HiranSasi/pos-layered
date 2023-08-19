@@ -4,6 +4,9 @@
  */
 package pos.layerd.service;
 
+import pos.layerd.dto.CustomerDto;
+import pos.layerd.service.custom.impl.CustomerServiceImpl;
+
 /**
  *
  * @author Hiran
@@ -24,4 +27,30 @@ public class ServiceFactory {
     
     
     }
+    
+    public SuperService getService(ServiceType type){
+    
+    switch(type){
+    
+        case CUSTOMER:
+            return new CustomerServiceImpl();
+    
+    default:
+        return null;
+    }
+    
+    
+    }
+    
+    public enum ServiceType{
+    
+                CUSTOMER
+  
+    }
+    
+    public void text(){
+    
+        System.out.println("he");
+    }
+    
 }
