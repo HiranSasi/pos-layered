@@ -48,9 +48,6 @@ public class ServiceFactory {
   
     }
     
-    public void text(){
     
-        System.out.println("he");
-    }
     
 }

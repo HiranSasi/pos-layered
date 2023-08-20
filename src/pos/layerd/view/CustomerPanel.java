@@ -4,6 +4,8 @@
  */
 package pos.layerd.view;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import pos.layerd.controller.CustomerController;
 import pos.layerd.dto.CustomerDto;
@@ -335,8 +337,12 @@ private CustomerController customerController;
     }//GEN-LAST:event_custpostcodeTextActionPerformed
 
     private void addbottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbottonActionPerformed
+    try {
         // TODO add your handling code here:
-        addCustomer(0);
+        addCustomer();
+    } catch (Exception ex) {
+        Logger.getLogger(CustomerPanel.class.getName()).log(Level.SEVERE, null, ex);
+    }
         
     }//GEN-LAST:event_addbottonActionPerformed
 
@@ -399,7 +405,7 @@ private CustomerController customerController;
     private javax.swing.JButton updatebotton;
     // End of variables declaration//GEN-END:variables
 
-    private void addCustomer(int i) {
+    private void addCustomer() throws Exception {
         CustomerDto customerDto = new CustomerDto(custidText.getText(),
                 custtitleText.getText(),
                 custnameText.getText(),
@@ -411,7 +417,7 @@ private CustomerController customerController;
                 custpostcodeText.getText());
         
         
-        String result =customerController.addCustomers(customerDto);
+        String result =customerController.addCustomer(customerDto);
         JOptionPane.showMessageDialog(this, result);
         clear();
     }
