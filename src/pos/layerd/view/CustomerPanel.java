@@ -4,11 +4,15 @@
  */
 package pos.layerd.view;
 
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import pos.layerd.controller.CustomerController;
 import pos.layerd.dto.CustomerDto;
+import java.util.AbstractList;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -22,6 +26,7 @@ private CustomerController customerController;
     public CustomerPanel() {
         customerController = new CustomerController();
         initComponents();
+        loadAllCustomers();
     }
 
     /**
@@ -40,18 +45,18 @@ private CustomerController customerController;
         custidLabel = new javax.swing.JLabel();
         custidText = new javax.swing.JTextField();
         custtitleLabel1 = new javax.swing.JLabel();
-        custtitleText = new javax.swing.JTextField();
+        custTitleText = new javax.swing.JTextField();
         custnameLabel = new javax.swing.JLabel();
-        custnameText = new javax.swing.JTextField();
+        custNameText = new javax.swing.JTextField();
         custdobLabel = new javax.swing.JLabel();
-        custdobText = new javax.swing.JTextField();
+        custDobText = new javax.swing.JTextField();
         custaddressLabel = new javax.swing.JLabel();
-        custaddressText = new javax.swing.JTextField();
-        custcityText = new javax.swing.JTextField();
+        custAddressText = new javax.swing.JTextField();
+        custCityText = new javax.swing.JTextField();
         custcityLabel = new javax.swing.JLabel();
-        custprovinceText = new javax.swing.JTextField();
+        custProvinceText = new javax.swing.JTextField();
         custprovinceLabel = new javax.swing.JLabel();
-        custpostcodeText = new javax.swing.JTextField();
+        custPostcodeText = new javax.swing.JTextField();
         custpostcodeLabel = new javax.swing.JLabel();
         addbotton = new javax.swing.JButton();
         deletebotton = new javax.swing.JButton();
@@ -89,17 +94,17 @@ private CustomerController customerController;
 
         custtitleLabel1.setText("Customer Title ");
 
-        custtitleText.addActionListener(new java.awt.event.ActionListener() {
+        custTitleText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                custtitleTextActionPerformed(evt);
+                custTitleTextActionPerformed(evt);
             }
         });
 
         custnameLabel.setText("Customer Name");
 
-        custnameText.addActionListener(new java.awt.event.ActionListener() {
+        custNameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                custnameTextActionPerformed(evt);
+                custNameTextActionPerformed(evt);
             }
         });
 
@@ -109,17 +114,17 @@ private CustomerController customerController;
 
         custcityLabel.setText("City");
 
-        custprovinceText.addActionListener(new java.awt.event.ActionListener() {
+        custProvinceText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                custprovinceTextActionPerformed(evt);
+                custProvinceTextActionPerformed(evt);
             }
         });
 
         custprovinceLabel.setText("Province");
 
-        custpostcodeText.addActionListener(new java.awt.event.ActionListener() {
+        custPostcodeText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                custpostcodeTextActionPerformed(evt);
+                custPostcodeTextActionPerformed(evt);
             }
         });
 
@@ -216,12 +221,12 @@ private CustomerController customerController;
                                     .addComponent(custidLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(custtitleText, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(custTitleText, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(custidText, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(88, 88, 88)
                                 .addComponent(custnameLabel)
                                 .addGap(5, 5, 5)
-                                .addComponent(custnameText, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(custNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(fromPanelLayout.createSequentialGroup()
                                 .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -231,22 +236,22 @@ private CustomerController customerController;
                                     .addComponent(custpostcodeLabel))
                                 .addGap(18, 18, 18)
                                 .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(custaddressText, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(custAddressText, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(fromPanelLayout.createSequentialGroup()
                                         .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(custcityText, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
-                                            .addComponent(custpostcodeText))
+                                            .addComponent(custCityText, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
+                                            .addComponent(custPostcodeText))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addGroup(fromPanelLayout.createSequentialGroup()
                                                 .addComponent(custprovinceLabel)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(custprovinceText, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(custProvinceText, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(fromPanelLayout.createSequentialGroup()
                                                 .addComponent(custSalaryLabel)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(custSalaryText, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addComponent(custdobText, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(custDobText, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap(65, Short.MAX_VALUE))))
         );
         fromPanelLayout.setVerticalGroup(
@@ -260,25 +265,25 @@ private CustomerController customerController;
                 .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(custnameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(custnameText))
+                        .addComponent(custNameText))
                     .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(custtitleLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(custtitleText, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(custTitleText, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(custdobLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(custdobText, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(custDobText, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(custaddressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(custaddressText, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(custAddressText, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(custcityLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(custcityText)
+                        .addComponent(custCityText)
                         .addComponent(custprovinceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(custprovinceText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(custProvinceText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -286,7 +291,7 @@ private CustomerController customerController;
                         .addComponent(custSalaryText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(custpostcodeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(custpostcodeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(custPostcodeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(12, 12, 12)
                 .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addbotton)
@@ -324,17 +329,17 @@ private CustomerController customerController;
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void custnameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custnameTextActionPerformed
+    private void custNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custNameTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_custnameTextActionPerformed
+    }//GEN-LAST:event_custNameTextActionPerformed
 
-    private void custprovinceTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custprovinceTextActionPerformed
+    private void custProvinceTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custProvinceTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_custprovinceTextActionPerformed
+    }//GEN-LAST:event_custProvinceTextActionPerformed
 
-    private void custpostcodeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custpostcodeTextActionPerformed
+    private void custPostcodeTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custPostcodeTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_custpostcodeTextActionPerformed
+    }//GEN-LAST:event_custPostcodeTextActionPerformed
 
     private void addbottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbottonActionPerformed
     try {
@@ -348,12 +353,12 @@ private CustomerController customerController;
 
     private void deletebottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebottonActionPerformed
         // TODO add your handling code here:
-        
+        delectCustomer();
     }//GEN-LAST:event_deletebottonActionPerformed
 
     private void updatebottonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebottonActionPerformed
         // TODO add your handling code here:
-       
+       updateCustomer();
     }//GEN-LAST:event_updatebottonActionPerformed
 
     private void custSalaryTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custSalaryTextActionPerformed
@@ -362,40 +367,40 @@ private CustomerController customerController;
 
     private void customerTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerTableMouseClicked
         // TODO add your handling code here:
-        
+        searchCustomer();
     }//GEN-LAST:event_customerTableMouseClicked
 
     private void custidTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custidTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_custidTextActionPerformed
 
-    private void custtitleTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custtitleTextActionPerformed
+    private void custTitleTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_custTitleTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_custtitleTextActionPerformed
+    }//GEN-LAST:event_custTitleTextActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addbotton;
     private javax.swing.JPanel basePanel;
+    private javax.swing.JTextField custAddressText;
+    private javax.swing.JTextField custCityText;
+    private javax.swing.JTextField custDobText;
+    private javax.swing.JTextField custNameText;
+    private javax.swing.JTextField custPostcodeText;
+    private javax.swing.JTextField custProvinceText;
     private javax.swing.JLabel custSalaryLabel;
     private javax.swing.JTextField custSalaryText;
+    private javax.swing.JTextField custTitleText;
     private javax.swing.JLabel custaddressLabel;
-    private javax.swing.JTextField custaddressText;
     private javax.swing.JLabel custcityLabel;
-    private javax.swing.JTextField custcityText;
     private javax.swing.JLabel custdobLabel;
-    private javax.swing.JTextField custdobText;
     private javax.swing.JLabel custidLabel;
     private javax.swing.JTextField custidText;
     private javax.swing.JLabel custnameLabel;
-    private javax.swing.JTextField custnameText;
     private javax.swing.JTable customerTable;
     private javax.swing.JLabel custpostcodeLabel;
-    private javax.swing.JTextField custpostcodeText;
     private javax.swing.JLabel custprovinceLabel;
-    private javax.swing.JTextField custprovinceText;
     private javax.swing.JLabel custtitleLabel1;
-    private javax.swing.JTextField custtitleText;
     private javax.swing.JButton deletebotton;
     private javax.swing.JPanel fromPanel;
     private javax.swing.JPanel headerPanel;
@@ -407,32 +412,114 @@ private CustomerController customerController;
 
     private void addCustomer() throws Exception {
         CustomerDto customerDto = new CustomerDto(custidText.getText(),
-                custtitleText.getText(),
-                custnameText.getText(),
-                custdobText.getText(),
+                custTitleText.getText(),
+                custNameText.getText(),
+                custDobText.getText(),
                 Double.parseDouble(custSalaryText.getText()),
-                custaddressText.getText(),
-                custcityText.getText(),
-                custprovinceText.getText(),
-                custpostcodeText.getText());
+                custAddressText.getText(),
+                custCityText.getText(),
+                custProvinceText.getText(),
+                custPostcodeText.getText());
         
         
         String result =customerController.addCustomer(customerDto);
         JOptionPane.showMessageDialog(this, result);
         clear();
+        loadAllCustomers();
     }
     
       private void clear(){
             
             custidText.setText("");
-            custtitleText.setText("");
-            custnameText.setText("");
-            custdobText.setText("");
+            custTitleText.setText("");
+            custNameText.setText("");
+            custDobText.setText("");
             custSalaryText.setText("");
-            custaddressText.setText("");
-            custcityText.setText("");
-            custprovinceText.setText("");
-            custpostcodeText.setText("");
+            custAddressText.setText("");
+            custCityText.setText("");
+            custProvinceText.setText("");
+            custPostcodeText.setText("");
                  
         }
+      
+       private void loadAllCustomers() {
+        try {
+            String[] collumns = {"Id", "Name", "Address", "Salary", "Postal Code"};
+            DefaultTableModel dtm = new DefaultTableModel(collumns, 0) {
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+            };
+            customerTable.setModel(dtm);
+
+            ArrayList<CustomerDto> customers = customerController.getAllCustomers();
+
+            for (CustomerDto customer : customers) {
+                Object[] rowData = {customer.getCustId(), customer.getTitle() + " " + customer.getNames(), customer.getAddress() + ", " + customer.getCity(), customer.getSalary(), customer.getZip()};
+                dtm.addRow(rowData);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(CustomerPanel.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    }
+        private void searchCustomer() {
+        try {
+            String custId = customerTable.getValueAt(customerTable.getSelectedRow(), 0).toString();
+            CustomerDto customerDto = customerController.searchCustomer(custId);
+            
+            if (customerDto != null) {
+                custidText.setText(customerDto.getCustId());
+                custTitleText.setText(customerDto.getTitle());
+                custNameText.setText(customerDto.getNames());
+                custDobText.setText(customerDto.getDob());
+                custSalaryText.setText(Double.toString(customerDto.getSalary()));
+                custAddressText.setText(customerDto.getAddress());
+                custCityText.setText(customerDto.getCity());
+                custProvinceText.setText(customerDto.getProvince());
+                custPostcodeText.setText(customerDto.getZip());
+            } else {
+                JOptionPane.showMessageDialog(this, "Customer Not Found");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+            Logger.getLogger(CustomerPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
 }
+
+    private void updateCustomer() {
+    try {
+        CustomerDto customerDto = new CustomerDto(custidText.getText(),
+                custTitleText.getText(),
+                custNameText.getText(),
+                custDobText.getText(),
+                Double.parseDouble(custSalaryText.getText()),
+                custAddressText.getText(),
+                custCityText.getText(),
+                custProvinceText.getText(),
+                custPostcodeText.getText());
+        
+        
+        String result =customerController.updateCustomer(customerDto);
+        JOptionPane.showMessageDialog(this, result);
+        clear();
+        loadAllCustomers();
+    } catch (Exception ex) {
+        Logger.getLogger(CustomerPanel.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }
+
+    private void delectCustomer() {
+    try {
+        String custId = custidText.getText();
+        
+        String resp = customerController.delectCustomer(custId);
+        JOptionPane.showMessageDialog(this, resp);
+        clear();
+        loadAllCustomers();
+    } catch (Exception ex) {
+        Logger.getLogger(CustomerPanel.class.getName()).log(Level.SEVERE, null, ex);
+    }
+}
+    }

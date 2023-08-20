@@ -104,13 +104,13 @@
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="custtitleText" min="-2" pref="103" max="-2" attributes="0"/>
+                                          <Component id="custTitleText" min="-2" pref="103" max="-2" attributes="0"/>
                                           <Component id="custidText" min="-2" pref="103" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                                       <Component id="custnameLabel" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                                      <Component id="custnameText" min="-2" pref="292" max="-2" attributes="0"/>
+                                      <Component id="custNameText" min="-2" pref="292" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -123,18 +123,18 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="custaddressText" alignment="0" min="-2" pref="570" max="-2" attributes="0"/>
+                                          <Component id="custAddressText" alignment="0" min="-2" pref="570" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="custcityText" pref="84" max="32767" attributes="0"/>
-                                                  <Component id="custpostcodeText" max="32767" attributes="0"/>
+                                                  <Component id="custCityText" pref="84" max="32767" attributes="0"/>
+                                                  <Component id="custPostcodeText" max="32767" attributes="0"/>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Component id="custprovinceLabel" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Component id="custprovinceText" min="-2" pref="110" max="-2" attributes="0"/>
+                                                      <Component id="custProvinceText" min="-2" pref="110" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="0" attributes="0">
                                                       <Component id="custSalaryLabel" min="-2" max="-2" attributes="0"/>
@@ -143,7 +143,7 @@
                                                   </Group>
                                               </Group>
                                           </Group>
-                                          <Component id="custdobText" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
+                                          <Component id="custDobText" alignment="0" min="-2" pref="109" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -165,30 +165,30 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="custnameLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                              <Component id="custnameText" alignment="3" max="32767" attributes="0"/>
+                              <Component id="custNameText" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="custtitleLabel1" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                              <Component id="custtitleText" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                              <Component id="custTitleText" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="custdobLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                          <Component id="custdobText" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="custDobText" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="custaddressLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                          <Component id="custaddressText" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="custAddressText" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="custcityLabel" alignment="0" max="32767" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="custcityText" alignment="3" max="32767" attributes="0"/>
+                              <Component id="custCityText" alignment="3" max="32767" attributes="0"/>
                               <Component id="custprovinceLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                              <Component id="custprovinceText" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="custProvinceText" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -199,7 +199,7 @@
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="custpostcodeLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                              <Component id="custpostcodeText" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="custPostcodeText" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
@@ -231,9 +231,9 @@
                 <Property name="text" type="java.lang.String" value="Customer Title "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="custtitleText">
+            <Component class="javax.swing.JTextField" name="custTitleText">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="custtitleTextActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="custTitleTextActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="custnameLabel">
@@ -241,9 +241,9 @@
                 <Property name="text" type="java.lang.String" value="Customer Name"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="custnameText">
+            <Component class="javax.swing.JTextField" name="custNameText">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="custnameTextActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="custNameTextActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="custdobLabel">
@@ -251,25 +251,25 @@
                 <Property name="text" type="java.lang.String" value="Customer DOB"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="custdobText">
+            <Component class="javax.swing.JTextField" name="custDobText">
             </Component>
             <Component class="javax.swing.JLabel" name="custaddressLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Address"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="custaddressText">
+            <Component class="javax.swing.JTextField" name="custAddressText">
             </Component>
-            <Component class="javax.swing.JTextField" name="custcityText">
+            <Component class="javax.swing.JTextField" name="custCityText">
             </Component>
             <Component class="javax.swing.JLabel" name="custcityLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="City"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="custprovinceText">
+            <Component class="javax.swing.JTextField" name="custProvinceText">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="custprovinceTextActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="custProvinceTextActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="custprovinceLabel">
@@ -277,9 +277,9 @@
                 <Property name="text" type="java.lang.String" value="Province"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="custpostcodeText">
+            <Component class="javax.swing.JTextField" name="custPostcodeText">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="custpostcodeTextActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="custPostcodeTextActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="custpostcodeLabel">
