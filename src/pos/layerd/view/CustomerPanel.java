@@ -66,10 +66,11 @@ private CustomerController customerController;
         tablepanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         customerTable = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         basePanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        headerlabel.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        headerlabel.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         headerlabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         headerlabel.setText(" Manage Customer");
 
@@ -81,54 +82,74 @@ private CustomerController customerController;
         );
         headerPanelLayout.setVerticalGroup(
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(headerlabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(headerPanelLayout.createSequentialGroup()
+                .addComponent(headerlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        fromPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         custidLabel.setText("Customer Id ");
+        fromPanel.add(custidLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 15, -1, 22));
 
         custidText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 custidTextActionPerformed(evt);
             }
         });
+        fromPanel.add(custidText, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 15, 103, -1));
 
         custtitleLabel1.setText("Customer Title ");
+        fromPanel.add(custtitleLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 43, -1, 22));
 
         custTitleText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 custTitleTextActionPerformed(evt);
             }
         });
+        fromPanel.add(custTitleText, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 43, 103, -1));
 
         custnameLabel.setText("Customer Name");
+        fromPanel.add(custnameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 43, -1, 22));
 
         custNameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 custNameTextActionPerformed(evt);
             }
         });
+        fromPanel.add(custNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 43, 292, -1));
 
         custdobLabel.setText("Customer DOB");
+        fromPanel.add(custdobLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 71, -1, 22));
+        fromPanel.add(custDobText, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 71, 109, -1));
 
         custaddressLabel.setText("Address");
+        fromPanel.add(custaddressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 99, -1, 22));
+        fromPanel.add(custAddressText, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 99, 570, -1));
+        fromPanel.add(custCityText, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 127, 84, -1));
 
         custcityLabel.setText("City");
+        fromPanel.add(custcityLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 127, 79, 22));
 
         custProvinceText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 custProvinceTextActionPerformed(evt);
             }
         });
+        fromPanel.add(custProvinceText, new org.netbeans.lib.awtextra.AbsoluteConstraints(257, 127, 110, -1));
 
         custprovinceLabel.setText("Province");
+        fromPanel.add(custprovinceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 127, -1, 22));
 
         custPostcodeText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 custPostcodeTextActionPerformed(evt);
             }
         });
+        fromPanel.add(custPostcodeText, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 167, 84, -1));
 
         custpostcodeLabel.setText("Post Code");
+        fromPanel.add(custpostcodeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 167, -1, 22));
 
         addbotton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         addbotton.setText("Save customer");
@@ -137,6 +158,7 @@ private CustomerController customerController;
                 addbottonActionPerformed(evt);
             }
         });
+        fromPanel.add(addbotton, new org.netbeans.lib.awtextra.AbsoluteConstraints(539, 201, -1, -1));
 
         deletebotton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         deletebotton.setText("Delete customer");
@@ -145,6 +167,7 @@ private CustomerController customerController;
                 deletebottonActionPerformed(evt);
             }
         });
+        fromPanel.add(deletebotton, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 201, -1, -1));
 
         updatebotton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         updatebotton.setText("Update customer");
@@ -153,14 +176,17 @@ private CustomerController customerController;
                 updatebottonActionPerformed(evt);
             }
         });
+        fromPanel.add(updatebotton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 201, -1, -1));
 
         custSalaryLabel.setText("Salary");
+        fromPanel.add(custSalaryLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 167, -1, 22));
 
         custSalaryText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 custSalaryTextActionPerformed(evt);
             }
         });
+        fromPanel.add(custSalaryText, new org.netbeans.lib.awtextra.AbsoluteConstraints(257, 167, 110, -1));
 
         customerTable.setBackground(new java.awt.Color(204, 204, 255));
         customerTable.setBorder(new javax.swing.border.MatteBorder(null));
@@ -197,110 +223,10 @@ private CustomerController customerController;
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        javax.swing.GroupLayout fromPanelLayout = new javax.swing.GroupLayout(fromPanel);
-        fromPanel.setLayout(fromPanelLayout);
-        fromPanelLayout.setHorizontalGroup(
-            fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fromPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(deletebotton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(updatebotton)
-                .addGap(12, 12, 12)
-                .addComponent(addbotton)
-                .addGap(86, 86, 86))
-            .addGroup(fromPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tablepanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(fromPanelLayout.createSequentialGroup()
-                        .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fromPanelLayout.createSequentialGroup()
-                                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(custtitleLabel1)
-                                    .addComponent(custidLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(custTitleText, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(custidText, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(88, 88, 88)
-                                .addComponent(custnameLabel)
-                                .addGap(5, 5, 5)
-                                .addComponent(custNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(fromPanelLayout.createSequentialGroup()
-                                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(custdobLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(custaddressLabel)
-                                        .addComponent(custcityLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(custpostcodeLabel))
-                                .addGap(18, 18, 18)
-                                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(custAddressText, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(fromPanelLayout.createSequentialGroup()
-                                        .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(custCityText, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
-                                            .addComponent(custPostcodeText))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(fromPanelLayout.createSequentialGroup()
-                                                .addComponent(custprovinceLabel)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(custProvinceText, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(fromPanelLayout.createSequentialGroup()
-                                                .addComponent(custSalaryLabel)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(custSalaryText, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addComponent(custDobText, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(65, Short.MAX_VALUE))))
-        );
-        fromPanelLayout.setVerticalGroup(
-            fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fromPanelLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(custidLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(custidText))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(custnameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(custNameText))
-                    .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(custtitleLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(custTitleText, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(custdobLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(custDobText, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(custaddressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(custAddressText, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(custcityLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(custCityText)
-                        .addComponent(custprovinceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(custProvinceText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(custSalaryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(custSalaryText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(custpostcodeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(custPostcodeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(12, 12, 12)
-                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addbotton)
-                    .addComponent(deletebotton)
-                    .addComponent(updatebotton))
-                .addGap(18, 18, 18)
-                .addComponent(tablepanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(124, 124, 124))
-        );
+        fromPanel.add(tablepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 242, 732, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Hiran\\Desktop\\ijse\\online-shopping-e-commerce-concept-wooden-block-icon-cart-standing-computer-keyboard-viewed-44905065.jpg")); // NOI18N
+        fromPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 740, 490));
 
         javax.swing.GroupLayout basePanelLayout = new javax.swing.GroupLayout(basePanel);
         basePanel.setLayout(basePanelLayout);
@@ -405,6 +331,7 @@ private CustomerController customerController;
     private javax.swing.JPanel fromPanel;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JLabel headerlabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel tablepanel;
     private javax.swing.JButton updatebotton;

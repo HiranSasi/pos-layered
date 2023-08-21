@@ -4,7 +4,9 @@
  */
 package pos.layerd.dao;
 
+import pos.layerd.dao.custom.ItemDao;
 import pos.layerd.dao.custom.impl.CustomerDaoImpl;
+import pos.layerd.dao.custom.impl.itemDaoImpl;
 
 /**
  *
@@ -32,7 +34,8 @@ public class DaoFactory {
     
         case CuSTOMER:
             return new CustomerDaoImpl();
-            
+         case ITEM:
+             return new itemDaoImpl();
             default:
                 return null;
     
@@ -43,7 +46,7 @@ public class DaoFactory {
     
     public enum DaoType{
     
-    CuSTOMER
+    CuSTOMER,ITEM
     
     }
 }
