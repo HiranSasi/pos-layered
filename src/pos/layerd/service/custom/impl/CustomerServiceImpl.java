@@ -81,6 +81,7 @@ public class CustomerServiceImpl implements CustomerService {
     public CustomerDto searchCustomer(String custId) throws Exception {
   CustomerEntity entity = customerDao.get(custId);
         
+  if(customerDao.get(custId) != null){
         CustomerDto dto = new CustomerDto(entity.getCustId(), 
                     entity.getTitle(), entity.getNames(),
                     entity.getDob(),
@@ -88,7 +89,8 @@ public class CustomerServiceImpl implements CustomerService {
                     entity.getCity(), entity.getProvince(), entity.getZip());
         
         return dto;
-    
+  }
+  return null;
     
     }
     

@@ -39,9 +39,12 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public ItemDto getItem(String id) throws Exception {
       ItemEntity entity = itemDao.get(id);
-        return new ItemDto(entity.getId(),
+      if(itemDao.get(id) != null){
+      return new ItemDto(entity.getId(),
                 entity.getDescription(), entity.getPackSize(),
                 entity.getUnitPrice(), entity.getQty());
+      }
+      return null;
     }
 
     @Override
@@ -49,7 +52,7 @@ public class ItemServiceImpl implements ItemService {
         
         ArrayList<ItemDto> dtos = new ArrayList<>();
      ArrayList<ItemEntity> itemEntitys = itemDao.getAll();
-        
+     
         for (ItemEntity itemEntity : itemEntitys) {
             
            ItemDto itemDto = new ItemDto(itemEntity.getId(), 
