@@ -6,6 +6,8 @@ package pos.layerd.dao;
 
 import pos.layerd.dao.custom.ItemDao;
 import pos.layerd.dao.custom.impl.CustomerDaoImpl;
+import pos.layerd.dao.custom.impl.OrderDaoIpml;
+import pos.layerd.dao.custom.impl.OrderDetailsImpl;
 import pos.layerd.dao.custom.impl.itemDaoImpl;
 
 /**
@@ -13,40 +15,47 @@ import pos.layerd.dao.custom.impl.itemDaoImpl;
  * @author Hiran
  */
 public class DaoFactory {
+
     private static DaoFactory daoFactory;
-    
-    private DaoFactory(){}
-    
-    public static DaoFactory getInstance(){
-    
-    if(daoFactory == null){
-    
-    daoFactory = new DaoFactory();
-    
+
+    private DaoFactory() {
     }
-    return daoFactory;
-    
+
+    public static DaoFactory getInstance() {
+
+        if (daoFactory == null) {
+
+            daoFactory = new DaoFactory();
+
+        }
+        return daoFactory;
+
     }
-    
-    public SuperDao getDao(DaoType type){
-    
-    switch(type){
-    
-        case CuSTOMER:
-            return new CustomerDaoImpl();
-         case ITEM:
-             return new itemDaoImpl();
+
+    public SuperDao getDao(DaoType type) {
+
+        switch (type) {
+
+            case CuSTOMER:
+                return new CustomerDaoImpl();
+            case ITEM:
+                return new itemDaoImpl();
+
+            case ORDER:
+                return new OrderDaoIpml();
+
+            case ORDER_DETAILS:
+                return new OrderDetailsImpl();
             default:
                 return null;
-    
-    
+
+        }
+
     }
-    
-    }
-    
-    public enum DaoType{
-    
-    CuSTOMER,ITEM
-    
+
+    public enum DaoType {
+
+        CuSTOMER, ITEM, ORDER, ORDER_DETAILS
+
     }
 }

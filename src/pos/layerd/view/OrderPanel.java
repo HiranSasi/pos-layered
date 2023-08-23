@@ -12,9 +12,12 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import pos.layerd.controller.CustomerController;
 import pos.layerd.controller.ItemController;
+import pos.layerd.controller.OrderController;
 import pos.layerd.dto.CustomerDto;
 import pos.layerd.dto.ItemDto;
 import pos.layerd.dto.OrderDetailsDto;
+import pos.layerd.dto.OrderDto;
+
 
 /**
  *
@@ -25,12 +28,14 @@ public class OrderPanel extends javax.swing.JPanel {
     CustomerController customerController;
     ItemController itemController;
     ArrayList<OrderDetailsDto> orderDetailsDtos = new ArrayList<>();
+    OrderController orderController;
     /**
      * Creates new form OrderPanel
      */
     public OrderPanel() {
         customerController = new CustomerController();
         itemController = new ItemController();
+        orderController = new OrderController();
         initComponents();
         loadTable();
     }
@@ -67,6 +72,7 @@ public class OrderPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         itemDeatailsTable = new javax.swing.JTable();
         placeOrderButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         basePanel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
@@ -86,15 +92,21 @@ public class OrderPanel extends javax.swing.JPanel {
             .addComponent(headerlabel, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
         );
 
+        fromPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         ordeIdLabel.setText("Order Id");
+        fromPanel.add(ordeIdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 15, -1, 22));
 
         orderIdText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 orderIdTextActionPerformed(evt);
             }
         });
+        fromPanel.add(orderIdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 15, 108, -1));
 
         customerIdLabel1.setText("Customer Id");
+        fromPanel.add(customerIdLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 43, -1, 22));
+        fromPanel.add(orderCustIdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 46, 108, -1));
 
         searchCustomer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         searchCustomer.setText("Search");
@@ -103,10 +115,17 @@ public class OrderPanel extends javax.swing.JPanel {
                 searchCustomerActionPerformed(evt);
             }
         });
+        fromPanel.add(searchCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 43, -1, -1));
 
         custDataLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        fromPanel.add(custDataLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 43, 392, 27));
+
+        jSeparator1.setForeground(new java.awt.Color(51, 51, 255));
+        fromPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 88, 730, 10));
 
         itemIdLabel.setText("Item Id");
+        fromPanel.add(itemIdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 107, -1, 22));
+        fromPanel.add(itemIdText, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 107, 108, -1));
 
         addItem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         addItem.setText("Add Item");
@@ -116,12 +135,18 @@ public class OrderPanel extends javax.swing.JPanel {
                 addItemActionPerformed(evt);
             }
         });
+        fromPanel.add(addItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 177, -1, 22));
 
         itemDataLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        fromPanel.add(itemDataLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(378, 104, 422, 27));
 
         qtyLabel.setText("Qty");
+        fromPanel.add(qtyLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 149, -1, 22));
+        fromPanel.add(qtyText, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 149, 108, -1));
 
         discountLabel.setText("Discount");
+        fromPanel.add(discountLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 177, -1, 22));
+        fromPanel.add(discountText, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 177, 154, -1));
 
         searchItem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         searchItem.setText("Search");
@@ -130,6 +155,7 @@ public class OrderPanel extends javax.swing.JPanel {
                 searchItemActionPerformed(evt);
             }
         });
+        fromPanel.add(searchItem, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 104, -1, -1));
 
         itemDeatailsTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -144,6 +170,8 @@ public class OrderPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(itemDeatailsTable);
 
+        fromPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 205, 695, 161));
+
         placeOrderButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         placeOrderButton.setText("Place Order");
         placeOrderButton.addActionListener(new java.awt.event.ActionListener() {
@@ -151,95 +179,11 @@ public class OrderPanel extends javax.swing.JPanel {
                 placeOrderButtonActionPerformed(evt);
             }
         });
+        fromPanel.add(placeOrderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(591, 384, -1, -1));
 
-        javax.swing.GroupLayout fromPanelLayout = new javax.swing.GroupLayout(fromPanel);
-        fromPanel.setLayout(fromPanelLayout);
-        fromPanelLayout.setHorizontalGroup(
-            fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fromPanelLayout.createSequentialGroup()
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 806, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fromPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(placeOrderButton)
-                .addGap(70, 70, 70))
-            .addGroup(fromPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(fromPanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 695, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(fromPanelLayout.createSequentialGroup()
-                        .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(customerIdLabel1)
-                            .addComponent(ordeIdLabel)
-                            .addComponent(itemIdLabel)
-                            .addComponent(qtyLabel)
-                            .addComponent(discountLabel))
-                        .addGap(37, 37, 37)
-                        .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(fromPanelLayout.createSequentialGroup()
-                                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(qtyText, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
-                                    .addComponent(itemIdText)
-                                    .addComponent(orderIdText)
-                                    .addComponent(orderCustIdText))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(fromPanelLayout.createSequentialGroup()
-                                        .addComponent(searchItem)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(itemDataLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(fromPanelLayout.createSequentialGroup()
-                                        .addComponent(searchCustomer)
-                                        .addGap(34, 34, 34)
-                                        .addComponent(custDataLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))
-                            .addGroup(fromPanelLayout.createSequentialGroup()
-                                .addComponent(discountText, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(addItem)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
-        );
-        fromPanelLayout.setVerticalGroup(
-            fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(fromPanelLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ordeIdLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(orderIdText))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(customerIdLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(orderCustIdText, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(searchCustomer)
-                        .addComponent(custDataLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(itemIdLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(itemIdText, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(searchItem))
-                    .addComponent(itemDataLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(qtyLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(qtyText, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(fromPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(discountLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(discountText, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addItem, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(placeOrderButton)
-                .addGap(38, 38, 38))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Hiran\\Desktop\\ijse\\online-shopping-e-commerce-concept-wooden-block-icon-cart-standing-computer-keyboard-viewed-44905065.jpg")); // NOI18N
+        jLabel1.setText("jLabel1");
+        fromPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 530));
 
         javax.swing.GroupLayout basePanelLayout = new javax.swing.GroupLayout(basePanel);
         basePanel.setLayout(basePanelLayout);
@@ -256,7 +200,7 @@ public class OrderPanel extends javax.swing.JPanel {
                 .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(fromPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 17, Short.MAX_VALUE))
+                .addGap(0, 7, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -313,6 +257,7 @@ public class OrderPanel extends javax.swing.JPanel {
     private javax.swing.JTable itemDeatailsTable;
     private javax.swing.JLabel itemIdLabel;
     private javax.swing.JTextField itemIdText;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel ordeIdLabel;
@@ -397,6 +342,20 @@ public class OrderPanel extends javax.swing.JPanel {
         qtyText.setText("");
         discountText.setText("");
         itemDataLabel2.setText("");
+    }
+
+    private void placeOrder() {
+        try {
+                 OrderDto orderDto = new OrderDto(orderIdText.getText(), orderCustIdText.getText(), orderDetailsDtos);
+        String result = orderController.placeOrder(orderDto);
+        JOptionPane.showMessageDialog(this, result);
+                    
+        } catch (Exception ex) {
+    
+        Logger.getLogger(OrderPanel.class.getName()).log(Level.SEVERE, null, ex);
+         JOptionPane.showMessageDialog(this, ex);
+        }
+   
     }
 
 }

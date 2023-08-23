@@ -175,8 +175,8 @@ private ItemController itemController;
 
         fromPanel.add(tablepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 254, 705, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pos/layerd/view/online-shopping-e-commerce-concept-wooden-block-icon-cart-standing-computer-keyboard-viewed-44905065.jpg"))); // NOI18N
-        fromPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 660));
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Hiran\\Desktop\\ijse\\online-shopping-e-commerce-concept-wooden-block-icon-cart-standing-computer-keyboard-viewed-44905065.jpg")); // NOI18N
+        fromPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 600));
 
         javax.swing.GroupLayout basePanelLayout = new javax.swing.GroupLayout(basePanel);
         basePanel.setLayout(basePanelLayout);

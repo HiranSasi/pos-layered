@@ -7,6 +7,7 @@ package pos.layerd.service;
 import pos.layerd.dto.CustomerDto;
 import pos.layerd.service.custom.impl.CustomerServiceImpl;
 import pos.layerd.service.custom.impl.ItemServiceImpl;
+import pos.layerd.service.custom.impl.OrderServiceImpl;
 
 /**
  *
@@ -38,7 +39,8 @@ public class ServiceFactory {
             
         case ITEM:
             return  new ItemServiceImpl();
-            
+         case ORDER:
+             return  new OrderServiceImpl();
            
     
     default:
@@ -50,7 +52,7 @@ public class ServiceFactory {
     
     public enum ServiceType{
     
-                CUSTOMER,ITEM
+                CUSTOMER,ITEM,ORDER
   
     }
     
