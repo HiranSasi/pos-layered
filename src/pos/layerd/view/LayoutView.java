@@ -37,6 +37,7 @@ public class LayoutView extends javax.swing.JFrame {
         bodyPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         headerPanel.setBackground(new java.awt.Color(102, 51, 255));
         headerPanel.setForeground(new java.awt.Color(255, 255, 255));
@@ -44,6 +45,7 @@ public class LayoutView extends javax.swing.JFrame {
         headerLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         headerLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headerLabel.setText("SUPER MARKET");
+        headerLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
         headerPanel.setLayout(headerPanelLayout);
@@ -57,10 +59,12 @@ public class LayoutView extends javax.swing.JFrame {
         );
 
         sideNavPanel.setBackground(new java.awt.Color(204, 204, 255));
+        sideNavPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         manageItemButton.setBackground(new java.awt.Color(255, 255, 255));
         manageItemButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         manageItemButton.setText("Manage  Item");
+        manageItemButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageItemButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageItemButtonActionPerformed(evt);
@@ -70,6 +74,7 @@ public class LayoutView extends javax.swing.JFrame {
         manageCustomerButton1.setBackground(new java.awt.Color(255, 255, 255));
         manageCustomerButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         manageCustomerButton1.setText("Manage Customer");
+        manageCustomerButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageCustomerButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageCustomerButton1ActionPerformed(evt);
@@ -79,6 +84,7 @@ public class LayoutView extends javax.swing.JFrame {
         ExitButton.setBackground(new java.awt.Color(255, 255, 255));
         ExitButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ExitButton.setText("Exit");
+        ExitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ExitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ExitButtonActionPerformed(evt);
@@ -88,6 +94,7 @@ public class LayoutView extends javax.swing.JFrame {
         manageOrderButton1.setBackground(new java.awt.Color(255, 255, 255));
         manageOrderButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         manageOrderButton1.setText("Manage  Order");
+        manageOrderButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageOrderButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageOrderButton1ActionPerformed(evt);
@@ -134,6 +141,8 @@ public class LayoutView extends javax.swing.JFrame {
                     .addComponent(manageOrderButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(206, 206, 206)))
         );
+
+        bodyPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout bodyPanelLayout = new javax.swing.GroupLayout(bodyPanel);
         bodyPanel.setLayout(bodyPanelLayout);
