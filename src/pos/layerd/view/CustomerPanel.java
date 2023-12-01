@@ -213,18 +213,18 @@ private CustomerController customerController;
         tablepanelLayout.setHorizontalGroup(
             tablepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tablepanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 2, Short.MAX_VALUE))
         );
         tablepanelLayout.setVerticalGroup(
             tablepanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        fromPanel.add(tablepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 242, 732, -1));
+        fromPanel.add(tablepanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 242, 710, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Hiran\\Desktop\\ijse\\online-shopping-e-commerce-concept-wooden-block-icon-cart-standing-computer-keyboard-viewed-44905065.jpg")); // NOI18N
-        fromPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 740, 490));
+        fromPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 750, 490));
 
         javax.swing.GroupLayout basePanelLayout = new javax.swing.GroupLayout(basePanel);
         basePanel.setLayout(basePanelLayout);
@@ -336,6 +336,8 @@ private CustomerController customerController;
     // End of variables declaration//GEN-END:variables
 
     private void addCustomer() throws Exception {
+       
+        try{
         CustomerDto customerDto = new CustomerDto(custidText.getText(),
                 custTitleText.getText(),
                 custNameText.getText(),
@@ -351,6 +353,15 @@ private CustomerController customerController;
         JOptionPane.showMessageDialog(this, result);
         clear();
         loadAllCustomers();
+    }catch(NumberFormatException ex){
+        
+        JOptionPane.showMessageDialog(this, "ENTER CORRECT VALUE");
+        clear();
+    }catch(Exception e){
+    
+     JOptionPane.showMessageDialog(this, e);
+        clear();
+    }
     }
     
       private void clear(){

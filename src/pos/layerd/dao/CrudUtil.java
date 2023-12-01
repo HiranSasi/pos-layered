@@ -15,7 +15,7 @@ import pos.layerd.db.DBConnection;
  * @author Hiran
  */
 public class CrudUtil {
-     private static PreparedStatement getPreparedStatement(String sql, Object... args) throws SQLException{
+     private static PreparedStatement getPreparedStatement(String sql, Object... args) throws SQLException {
         Connection connection = DBConnection.getInstance().getConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
         if(args !=null){
